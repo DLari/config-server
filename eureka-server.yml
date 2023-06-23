@@ -10,6 +10,8 @@ eureka:
 #   instance:
 #     hostname: eurekaserver
   instance:
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+    preferIpAddress: true
     # hostname: localhost
     hostname: ${spring.cloud.client.ip-address}
   client:
@@ -23,7 +25,7 @@ eureka:
 # eureka:
 #  instance:
 #    hostname: localhost
-#    # preferIpAddress: true
+#    preferIpAddress: true
 #  client:
 #    registerWithEureka: true
 #    fetchRegistry: true
