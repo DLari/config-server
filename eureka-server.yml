@@ -26,8 +26,7 @@ eureka:
 
 # server.address: 192.168.0.65
 
-spring.cloud.ignoredInterfaces= eno.*, virbr.*
-
+server.address=0.0.0.0
       
 # eureka:
 #  instance:
