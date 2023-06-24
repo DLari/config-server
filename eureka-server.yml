@@ -26,7 +26,7 @@ eureka:
 
 # server.address: 192.168.0.65
 
-server.address=0.0.0.0
+server.address: 0.0.0.0
       
 # eureka:
 #  instance:
