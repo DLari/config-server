@@ -10,36 +10,17 @@ eureka:
 #   instance:
 #     hostname: eurekaserver
   instance:
-    # instance-id: ${spring.cloud.client.ip-address}:${server.port}
     preferIpAddress: true
     hostname: localhost
-    # hostname: ${spring.cloud.client.ip-address}
   client:
     registerWithEureka: false
     fetchRegistry: false
-    # registerWithEureka: true
-    # fetchRegistry: true
     serviceUrl:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
   server:
     waitTimeInMsWhenSyncEmpty: 5
-
-# server.address: 192.168.0.65
-
+    
 server.address: 0.0.0.0
-      
-# eureka:
-#  instance:
-#    hostname: localhost
-#    preferIpAddress: true
-#  client:
-#    registerWithEureka: true
-#    fetchRegistry: true
-#    serviceUrl: 
-#      defaultZone: http://localhost:8070/eureka/
-#      # defaultZone: http://eureka-server:8070/eureka/
-#  server:
-#    waitTimeInMsWhenSyncEmpty: 5
       
 management:
   endpoints:
