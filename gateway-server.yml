@@ -13,7 +13,7 @@ eureka:
 
 
 # 
-eureka.instance.hostname = localhost
+eureka.instance.hostname: localhost
 eureka.instance.instanceId: ${eureka.instance.hostname}:${server.port}
 # 
  
