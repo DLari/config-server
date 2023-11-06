@@ -39,6 +39,7 @@ spring:
         - Before=2023-11-06T18:38:27.408396900+03:00[Europe/Moscow]
         filters:
         - RewritePath=/license/(?<path>.*), /$\{path}
+        - SetStatus=202
 
 
        
