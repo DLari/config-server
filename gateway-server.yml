@@ -53,6 +53,19 @@ spring:
             redis-rate-limiter.remaining: 1
             redis-rate-limiter.requestedTokens: 1
             key-resolver: "#{@userKeyResolver}"
+      - id: golden_route
+        uri: lb://licensing-service
+        predicates:
+        - Path=/license/**
+        - GoldenCustomer=true
+      - id: common_route
+        uri: lb://licensing-service-slower
+        predicates:
+        - Path=/license/**
+        - name: GoldenCustomer
+          args:
+            golden: false
+            customerIdCookie: customerId
 
        
 management:
