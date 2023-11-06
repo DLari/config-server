@@ -32,15 +32,15 @@ spring:
         - Path=/organization/**
         filters:
         - RewritePath=/organization/(?<path>.*), /$\{path}
-      - id: licensing-service
-        uri: lb://licensing-service
-        predicates:
-        - Path=/license/**
-        - Before=2023-11-06T18:38:27.408396900+03:00[Europe/Moscow]
-        filters:
-        - RewritePath=/license/(?<path>.*), /$\{path}
-        - SetStatus=202
-        - SetResponseHeader=X-My-ID,123
+      # - id: licensing-service
+      #   uri: lb://licensing-service
+      #   predicates:
+      #   - Path=/license/**
+      #   - Before=2023-11-06T18:38:27.408396900+03:00[Europe/Moscow]
+      #   filters:
+      #   - RewritePath=/license/(?<path>.*), /$\{path}
+      #   - SetStatus=202
+      #   - SetResponseHeader=X-My-ID,123
       - id: request_rate_limiter
         uri: lb://licensing-service
         predicates:
