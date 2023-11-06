@@ -40,6 +40,7 @@ spring:
         filters:
         - RewritePath=/license/(?<path>.*), /$\{path}
         - SetStatus=202
+        - SetResponseHeader=X-My-ID,123
 
 
        
