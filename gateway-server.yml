@@ -36,6 +36,7 @@ spring:
         uri: lb://licensing-service
         predicates:
         - Path=/license/**
+        - Before=2023-06-11T17:00:00
         filters:
         - RewritePath=/license/(?<path>.*), /$\{path}
 
