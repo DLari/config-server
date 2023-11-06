@@ -57,7 +57,11 @@ spring:
         uri: lb://licensing-service
         predicates:
         - Path=/license/**
-        - GoldenCustomer=true
+        # - GoldenCustomer=true
+        - name: GoldenCustomer
+          args:
+            golden: true
+            customerIdCookie: customerId
         filters:
         - StripPrefix=1
         - AddRequestHeader=GoldenCustomer,true
