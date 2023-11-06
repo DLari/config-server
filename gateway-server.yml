@@ -26,25 +26,25 @@ spring:
           enabled: true
           lowerCaseServiceId: true
           predicates:
-            - Before=2023-11-06T18:38:27.408396900+03:00[Europe/Moscow]
+          - Before=2023-11-06T18:38:27.408396900+03:00[Europe/Moscow]
           filters:
-            - SetStatus=202
-      # routes:
-      # - id: organization-service
-      #   uri: lb://organization-service
-      #   predicates:
-      #   - Path=/organization/**
-      #   filters:
-      #   - RewritePath=/organization/(?<path>.*), /$\{path}
-      # - id: licensing-service
-      #   uri: lb://licensing-service
-      #   predicates:
-      #   - Path=/license/**
-      #   - Before=2023-11-06T18:38:27.408396900+03:00[Europe/Moscow]
-      #   filters:
-      #   - RewritePath=/license/(?<path>.*), /$\{path}
-      #   - SetStatus=202
-      #   - SetResponseHeader=X-My-ID,123
+          - SetStatus=202
+      routes:
+      - id: organization-service
+        uri: lb://organization-service
+        predicates:
+        - Path=/organization/**
+        filters:
+        - RewritePath=/organization/(?<path>.*), /$\{path}
+      - id: licensing-service
+        uri: lb://licensing-service
+        predicates:
+        - Path=/license/**
+        - Before=2023-11-06T18:38:27.408396900+03:00[Europe/Moscow]
+        filters:
+        - RewritePath=/license/(?<path>.*), /$\{path}
+        - SetStatus=202
+        - SetResponseHeader=X-My-ID,123
 
 
        
