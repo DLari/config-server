@@ -60,7 +60,7 @@ spring:
         # - GoldenCustomer=true
         - name: GoldenCustomer
           args:
-            isGolden: true
+            golden: true
             customerIdCookie: customerId
         filters:
         - StripPrefix=1
@@ -71,7 +71,7 @@ spring:
         - Path=/license/**
         - name: GoldenCustomer
           args:
-            isGolden: false
+            golden: false
             customerIdCookie: customerId
         filters:
         - StripPrefix=1
