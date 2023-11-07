@@ -41,24 +41,24 @@ spring:
       #   - RewritePath=/license/(?<path>.*), /$\{path}
       #   - SetStatus=202
       #   - SetResponseHeader=X-My-ID,123
-      - id: request_rate_limiter
-        uri: lb://licensing-service
-        predicates:
-        - Path=/license/**
-        filters:
-        - name: RequestRateLimiter
-          args:
-            redis-rate-limiter.replenishRate: 1
-            redis-rate-limiter.burstCapacity: 1
-            redis-rate-limiter.remaining: 1
-            redis-rate-limiter.requestedTokens: 1
-            key-resolver: "#{@userKeyResolver}"
+      # - id: request_rate_limiter
+      #   uri: lb://licensing-service
+      #   predicates:
+      #   - Path=/license/**
+      #   filters:
+      #   - name: RequestRateLimiter
+      #     args:
+      #       redis-rate-limiter.replenishRate: 1
+      #       redis-rate-limiter.burstCapacity: 1
+      #       redis-rate-limiter.remaining: 1
+      #       redis-rate-limiter.requestedTokens: 1
+      #       key-resolver: "#{@userKeyResolver}"
       - id: golden_route
         uri: lb://licensing-service
         predicates:
         - Path=/license/**
         # - GoldenCustomer=true
-        - name: GoldenCustomerRoutePredicateFactory
+        - name: GoldenCustomer
           args:
             isGolden: true
             customerIdCookie: customerId
@@ -69,7 +69,7 @@ spring:
         uri: lb://licensing-service-slower
         predicates:
         - Path=/license/**
-        - name: GoldenCustomerRoutePredicateFactory
+        - name: GoldenCustomer
           args:
             isGolden: false
             customerIdCookie: customerId
