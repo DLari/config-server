@@ -41,7 +41,7 @@ spring:
         - RewritePath=/license/(?<path>.*), /$\{path}
         - SetStatus=202
         - SetResponseHeader=X-My-ID,123
-        - ScrubResponse=contactEmail,***
+        # - ScrubResponse=contactEmail,***
       # - id: request_rate_limiter
       #   uri: lb://licensing-service
       #   predicates:
