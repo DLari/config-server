@@ -86,4 +86,6 @@ management:
       exposure:
         include: "*"
         
-        
+
+spring.zipkin.baseUrl:http://localhost:9411
+spring.sleuth.sampler.percentage: 1
