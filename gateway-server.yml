@@ -88,4 +88,4 @@ management:
         
 
 spring.zipkin.baseUrl:http://localhost:9411
-spring.sleuth.sampler.percentage: 1
+spring.sleuth.sampler.percentage:1
